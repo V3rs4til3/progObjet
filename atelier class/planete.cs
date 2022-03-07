@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace atelier_class
 {
-    internal class Planete
+    class Planete : IComparable
     {
         String _nom;
         double _rayon;
         float _masse;
-
-        List<Lune> _cLune = new List<Lune>();
+        List<Lune> _cLune; 
 
         public Planete()
         {
             _nom = "";
             _rayon = 0;
             _masse = 0;
+            _cLune = new List<Lune>();
         }
 
         public Planete(String nomPlanete, double rayonPlanete, float massePlanete)
@@ -29,6 +29,7 @@ namespace atelier_class
                 _nom = nomPlanete;
                 _rayon = rayonPlanete;
                 _masse = massePlanete;
+                _cLune = new List<Lune>();
             }
         }
 
@@ -41,10 +42,43 @@ namespace atelier_class
                 _rayon = rayonPlanete;
                 _masse = massePlanete;
                 _cLune = listLune;
+                _cLune = new List<Lune>();
             }
         }
 
+        public Lune this[int index]
+        {
+            get
+            {
+                return this._cLune[index];
+            }
+        }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            
+            Planete planete = obj as Planete;
+            if (this.Nom == planete.Nom && this.Rayon == planete.Rayon && this.Masse == planete.Masse)
+                return true;
+
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return "Planete :" + this.Nom + " , rayon de :" + this.Rayon + " , masse de : " + this.Masse + ", as " + this._cLune.Count() + " lunes";
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Planete planete = obj as Planete;
+            if (this.Rayon > planete.Rayon) return 1;
+            else if (this.Rayon == planete.Rayon) return 0;
+            return 1;
+        }
 
         public void addLune(Lune laLune)
         {
@@ -108,6 +142,14 @@ namespace atelier_class
             }
         }
 
+        public List<Lune> ListedeLune
+        {
+            get
+            {
+                return _cLune;
+            }
+        }
+
         public float calculVolume(Planete pln1)
         {
             double volume = (4 * Math.PI * Math.Pow(pln1.Rayon, 3)) / 3;
@@ -127,14 +169,6 @@ namespace atelier_class
             if (pln1.Masse > 0 && pln1.Volume > 0)
                 masseVol = pln1.Masse / pln1.Volume;
             return masseVol;
-        }
-
-        public bool estEgal(Planete pln1, Planete pln2)
-        {
-            if (pln1.Nom == pln2.Nom && pln1.Rayon == pln2.Rayon && pln1.Masse == pln2.Masse)
-                return true;
-
-            return false;
         }
 
         public static bool operator >(Planete pln1, Planete pln2)

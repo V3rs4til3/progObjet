@@ -14,7 +14,7 @@ namespace atelier_class
             Lune lune = new Lune("Lune", 12, 200);
             terre.addLune(lune);
             string nomLune = lune.Nom;
-
+            terre.ListedeLune.IndexOf(lune);
         }
     }
 }

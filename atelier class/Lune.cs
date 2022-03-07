@@ -8,16 +8,12 @@ namespace atelier_class
 {
     class Lune : Planete
     {
-        String _nom;
-        double _rayon;
-        float _masse;
-
         //lune vierge
         public Lune()
         {
-            _nom = "";
-            _rayon = 0;
-            _masse = 0;
+            this.Nom = "";
+            this.Rayon = 0;
+            this.Masse = 0;
         }
 
         //lune sans nom
@@ -25,9 +21,9 @@ namespace atelier_class
         {
             if (rayon > 0 && masse > 0)
             {
-                _nom = "";
-                _rayon = rayon;
-                _masse = masse;
+                this.Nom = "";
+                this.Rayon = rayon;
+                this.Masse = masse;
             }
         }
 
@@ -36,11 +32,37 @@ namespace atelier_class
         {
             if (rayon > 0 && masse > 0)
             {
-                _nom = String.Concat(nom.Where(char.IsLetterOrDigit));
-                _rayon = rayon;
-                _masse = masse;
+                this.Nom = String.Concat(nom.Where(char.IsLetterOrDigit));
+                this.Rayon = rayon;
+                this.Masse = masse;
             }
         }
-       
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+
+            Lune lune = obj as Lune;
+            if (this.Nom == lune.Nom && this.Rayon == lune.Rayon && this.Masse == lune.Masse)
+                return true;
+
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return "Lune :" + this.Nom + " , rayon de :" + this.Rayon + " , masse de : " + this.Masse;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            Lune lune = obj as Lune;
+            if (this.Rayon > lune.Rayon) return 1;
+            else if (this.Rayon == lune.Rayon) return 0;
+            return 1;
+        }
+
     }
 }
