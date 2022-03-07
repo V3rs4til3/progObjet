@@ -10,7 +10,11 @@ namespace atelier_class
     {
         static void Main(string[] args)
         {
-            
+            Planete terre = new Planete("terre", 25, 500);
+            Lune lune = new Lune("Lune", 12, 200);
+            terre.addLune(lune);
+            string nomLune = lune.Nom;
+
         }
     }
 }

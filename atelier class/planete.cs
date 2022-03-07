@@ -12,6 +12,8 @@ namespace atelier_class
         double _rayon;
         float _masse;
 
+        List<Lune> _cLune = new List<Lune>();
+
         public Planete()
         {
             _nom = "";
@@ -28,6 +30,25 @@ namespace atelier_class
                 _rayon = rayonPlanete;
                 _masse = massePlanete;
             }
+        }
+
+        public Planete(String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
+        { //constructeur planete minimum parametre
+            if (rayonPlanete > 0 && massePlanete > 0)
+            {
+                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
+                _nom = nomPlanete;
+                _rayon = rayonPlanete;
+                _masse = massePlanete;
+                _cLune = listLune;
+            }
+        }
+
+
+
+        public void addLune(Lune laLune)
+        {
+            this._cLune.Add(laLune);
         }
 
         public string Nom
@@ -116,19 +137,28 @@ namespace atelier_class
             return false;
         }
 
-        public Planete plusVolumineuse(Planete pln1, Planete pln2)
-        {
-            if (pln2.Volume > pln1.Volume)
-                return pln2;
-            return pln1;
-
-        }
-
-        public Planete plusMassive(Planete pln1, Planete pln2)
+        public static bool operator >(Planete pln1, Planete pln2)
         {
             if (pln2.Masse > pln1.Masse)
-                return pln2;
-            return pln1;
+                return false;
+            return true;
+        }
+
+        public static bool operator <(Planete pln1, Planete pln2)
+        {
+            if (pln2.Masse > pln1.Masse)
+                return false;
+            return true;
+        }
+
+        public static double operator +(Planete pln1, Planete pln2)
+        {
+            return pln1.Masse + pln2.Masse;
+        }
+
+        public static double operator -(Planete pln1, Planete pln2)
+        {
+            return pln1.Masse - pln2.Masse;
         }
     }
 }
