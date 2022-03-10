@@ -10,6 +10,10 @@ namespace atelier1._5
     {
         string _nom;
 
+        public ObjetCeleste(String nom)
+        {
+            _nom = nom;
+        }
         public string Nom
         {
             get

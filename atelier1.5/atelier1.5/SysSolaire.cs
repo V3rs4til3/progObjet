@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace atelier1._5
 {
-    class SysSolaire : Galaxie
+    class SysSolaire : ObjetCeleste
     {
+        Galaxie _parent;
         List<Astre> _listAstre;
         public SysSolaire()
         {
@@ -19,7 +20,7 @@ namespace atelier1._5
         {
             this.Nom = "";
             _listAstre = new List<Astre>();
-            galax.addSys(this);
+            base.addSys(this);
         }
 
         public SysSolaire(string nom)
@@ -50,5 +51,10 @@ namespace atelier1._5
                 return _listAstre;
             }
         }
+
+        public SysSolaire this[int index]
+        {
+
+        } 
     }
 }

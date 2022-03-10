@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 namespace atelier1._5
 {
     class Soleil : Astre
-    {
+    { 
         public Soleil()
         {
             this.Nom = "";
             this.Masse = 0;
             this.Rayon = 0;
-            base.addAstre(this);
         }
         public Soleil(SysSolaire systeme)
         {
@@ -21,6 +20,7 @@ namespace atelier1._5
             this.Masse = 0;
             this.Rayon = 0;
             systeme.addAstre(this);
+            Parent = systeme;
         }
         public Soleil(String nom, double rayon, double masse)
         {
@@ -35,6 +35,7 @@ namespace atelier1._5
             this.Masse = 0;
             this.Rayon = 0;
             systeme.addAstre(this);
+            Parent = systeme;
         }
 
         public override string ToString()

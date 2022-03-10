@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace atelier1._5
 {
-    class Lune : Planete
+    class Lune : Astre
     {
         //lune vierge
-        public Lune()
-        {
-            this.Nom = "";
-            this.Rayon = 0;
-            this.Masse = 0;
-        }
+        public Lune():base(){}
 
-        public Lune(Planete planeteMere)
+        public Lune(Planete planeteMere):base()
         {
-            this.Nom = "";
-            this.Rayon = 0;
-            this.Masse = 0;
-            planeteMere.addLune(this);
+            if(planeteMere != null)
+            {
+                planeteMere.addLune(this);
+                Parent = planeteMere;
+            }
         }
 
         public Lune(Planete planeteMere, String nom, double rayon, float masse)
@@ -30,6 +26,7 @@ namespace atelier1._5
             this.Rayon = rayon;
             this.Masse = masse;
             planeteMere.addLune(this);
+            Parent = planeteMere;
         }
 
         //lune sans nom
@@ -80,5 +77,10 @@ namespace atelier1._5
             return 1;
         }
 
+        new public Planete Parent
+        {
+            get { return this.Parent; }
+            set { this.Parent = value; }
+        }
     }
 }

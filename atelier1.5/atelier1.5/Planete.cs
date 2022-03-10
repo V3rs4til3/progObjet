@@ -25,6 +25,7 @@ namespace atelier1._5
             this.Masse = 0;
             _cLune = new List<Lune>();
             systeme.addAstre(this);
+            this.Parent = systeme;
         }
 
         public Planete(String nomPlanete, double rayonPlanete, float massePlanete)
@@ -49,6 +50,7 @@ namespace atelier1._5
                 this.Masse = massePlanete;
                 _cLune = new List<Lune>();
                 systeme.addAstre(this);
+                this.Parent = systeme;
             }
         }
 
@@ -75,9 +77,9 @@ namespace atelier1._5
                 _cLune = listLune;
                 _cLune = new List<Lune>();
                 systeme.addAstre(this);
+                this.Parent = systeme;
             }
         }
-
 
         public Lune this[int index]
         {
