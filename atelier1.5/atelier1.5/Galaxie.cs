@@ -29,5 +29,27 @@ namespace atelier1._5
         {
             return "Galaxie : " + base.ToString();
         }
+
+        public void addSys(SysSolaire systeme)
+        {
+            _listSS.Add(systeme);
+        }
+
+        public void addTout(List<SysSolaire> listSolaire)
+        {
+            listSolaire.ForEach(add);
+        }
+        void add(SysSolaire systeme)
+        {
+            _listSS.Add(systeme);
+        }
+
+        public void listToString()
+        {
+            foreach (SysSolaire systeme in _listSS)
+            {
+                systeme.ToString();
+            }
+        }
     }
 }

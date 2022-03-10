@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace atelier1._5
 {
-    class Planete : IComparable
+    class Planete : Astre, IComparable
     {
-        String _nom;
-        double _rayon;
-        float _masse;
         List<Lune> _cLune;
 
         public Planete()
         {
-            _nom = "";
-            _rayon = 0;
-            _masse = 0;
+            this.Nom = "";
+            this.Rayon = 0;
+            this.Masse = 0;
             _cLune = new List<Lune>();
+        }
+
+        public Planete(SysSolaire systeme)
+        {
+            this.Nom = "";
+            this.Rayon = 0;
+            this.Masse = 0;
+            _cLune = new List<Lune>();
+            systeme.addAstre(this);
         }
 
         public Planete(String nomPlanete, double rayonPlanete, float massePlanete)
@@ -26,25 +32,52 @@ namespace atelier1._5
             if (rayonPlanete > 0 && massePlanete > 0)
             {
                 nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                _nom = nomPlanete;
-                _rayon = rayonPlanete;
-                _masse = massePlanete;
+                this.Nom = nomPlanete;
+                this.Rayon = rayonPlanete;
+                this.Masse = massePlanete;
                 _cLune = new List<Lune>();
             }
         }
 
-        public Planete(String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
+        public Planete(SysSolaire systeme, String nomPlanete, double rayonPlanete, float massePlanete)
         { //constructeur planete minimum parametre
             if (rayonPlanete > 0 && massePlanete > 0)
             {
                 nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                _nom = nomPlanete;
-                _rayon = rayonPlanete;
-                _masse = massePlanete;
+                this.Nom = nomPlanete;
+                this.Rayon = rayonPlanete;
+                this.Masse = massePlanete;
+                _cLune = new List<Lune>();
+                systeme.addAstre(this);
+            }
+        }
+
+        public Planete(String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
+        { //constructeur planete maximum parametre
+            if (rayonPlanete > 0 && massePlanete > 0)
+            {
+                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
+                this.Nom = nomPlanete;
+                this.Rayon = rayonPlanete;
+                this.Masse = massePlanete;
                 _cLune = listLune;
                 _cLune = new List<Lune>();
             }
         }
+        public Planete(SysSolaire systeme, String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
+        { //constructeur planete maximum parametre
+            if (rayonPlanete > 0 && massePlanete > 0)
+            {
+                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
+                this.Nom = nomPlanete;
+                this.Rayon = rayonPlanete;
+                this.Masse = massePlanete;
+                _cLune = listLune;
+                _cLune = new List<Lune>();
+                systeme.addAstre(this);
+            }
+        }
+
 
         public Lune this[int index]
         {
@@ -67,7 +100,15 @@ namespace atelier1._5
 
         public override string ToString()
         {
-            return "Planete :" + this.Nom + " , rayon de :" + this.Rayon + " , masse de : " + this.Masse + ", as " + this._cLune.Count() + " lunes";
+            string stringPlanete = "Planete :" + this.Nom + " , rayon de :" + this.Rayon + " , masse de : " + this.Masse;
+            
+            stringPlanete.Insert(stringPlanete.Last(), " { ( ");
+            foreach (Lune lune in this._cLune)
+            {
+                    stringPlanete.Insert(stringPlanete.Last(), lune.ToString() + " ) , ( ");
+            }
+            stringPlanete.Insert(stringPlanete.Last(), " ) } ");
+            return stringPlanete;
         }
 
         public int CompareTo(object obj)
@@ -83,39 +124,6 @@ namespace atelier1._5
         public void addLune(Lune laLune)
         {
             this._cLune.Add(laLune);
-        }
-
-        public string Nom
-        {
-            get { return _nom; }
-
-            set
-            {
-                value = String.Concat(value.Where(char.IsLetterOrDigit));
-                _nom = value;
-            }
-        }
-
-        public double Rayon
-        {
-            get { return _rayon; }
-
-            set
-            {
-                if (value > 0)
-                    _rayon = value;
-            }
-        }
-
-        public double Masse
-        {
-            get { return _masse; }
-
-            set
-            {
-                if (value > 0)
-                    _masse = (float)value;
-            }
         }
 
         public float Volume
@@ -196,15 +204,4 @@ namespace atelier1._5
         }
     }
 }
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace atelier1._5
-{
-    class Planete
-    {
-    }
-}

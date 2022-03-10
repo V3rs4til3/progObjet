@@ -16,6 +16,22 @@ namespace atelier1._5
             this.Masse = 0;
         }
 
+        public Lune(Planete planeteMere)
+        {
+            this.Nom = "";
+            this.Rayon = 0;
+            this.Masse = 0;
+            planeteMere.addLune(this);
+        }
+
+        public Lune(Planete planeteMere, String nom, double rayon, float masse)
+        {
+            this.Nom = String.Concat(nom.Where(char.IsLetterOrDigit));
+            this.Rayon = rayon;
+            this.Masse = masse;
+            planeteMere.addLune(this);
+        }
+
         //lune sans nom
         public Lune(double rayon, float masse)
         {
@@ -54,7 +70,7 @@ namespace atelier1._5
             return "Lune :" + this.Nom + " , rayon de :" + this.Rayon + " , masse de : " + this.Masse;
         }
 
-        public int CompareTo(object obj)
+        new public int CompareTo(object obj)
         {
             if (obj == null) return 1;
 

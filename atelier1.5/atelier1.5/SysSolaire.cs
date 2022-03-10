@@ -6,29 +6,49 @@ using System.Threading.Tasks;
 
 namespace atelier1._5
 {
-    class SysSolaire : ObjetCeleste
+    class SysSolaire : Galaxie
     {
-        List<Soleil> _listSoleil;
+        List<Astre> _listAstre;
         public SysSolaire()
         {
             this.Nom = "";
-            _listSoleil = new List<Soleil>();
+            _listAstre = new List<Astre>();
+        }
+
+        public SysSolaire(Galaxie galax)
+        {
+            this.Nom = "";
+            _listAstre = new List<Astre>();
+            galax.addSys(this);
         }
 
         public SysSolaire(string nom)
         {
             this.Nom = nom;
-            _listSoleil = new List<Soleil>();
+            _listAstre = new List<Astre>();
         }
-        public SysSolaire(string nom, List<Soleil> listeSoleil)
+        public SysSolaire(string nom, List<Astre> listeSoleil)
         {
             this.Nom = nom;
-            _listSoleil = listeSoleil;
+            _listAstre = listeSoleil;
         }
 
         public override string ToString()
         {
             return "Systeme Solaire : " + base.ToString();
+        }
+
+        public void addAstre(Astre obj)
+        {
+            _listAstre.Add(obj);
+        }
+
+        public List<Astre> listAstre
+        {
+            get
+            {
+                return _listAstre;
+            }
         }
     }
 }

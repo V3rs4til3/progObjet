@@ -14,10 +14,11 @@ namespace atelier1._5
         {
             get
             {
-                return this._nom;
+                return _nom;
             }
             set
             {
+                value = String.Concat(value.Where(char.IsLetterOrDigit));
                 this.Nom = value;
             }
         }
