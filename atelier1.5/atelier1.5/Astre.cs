@@ -12,6 +12,12 @@ namespace atelier1._5
         double _rayon;
         float _masse;
 
+        public SysSolaire Parent
+        {
+            get { return _parent; }
+            set { _parent = value; }
+        }
+
         public Astre():base("")
         {
             _rayon = 0;
@@ -51,10 +57,6 @@ namespace atelier1._5
             return false;
         }
 
-        public SysSolaire Parent
-        {
-            get { return _parent; }
-            set { _parent = value; }
-        }
+
     }
 }
