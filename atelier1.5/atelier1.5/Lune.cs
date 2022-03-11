@@ -20,35 +20,15 @@ namespace atelier1._5
             }
         }
 
-        public Lune(Planete planeteMere, String nom, double rayon, float masse)
+        public Lune(Planete planeteMere, string name):base(name)
         {
-            this.Nom = String.Concat(nom.Where(char.IsLetterOrDigit));
-            this.Rayon = rayon;
-            this.Masse = masse;
             planeteMere.addLune(this);
             Parent = planeteMere;
         }
-
-        //lune sans nom
-        public Lune(double rayon, float masse)
+        public Lune(Planete planeteMere, string name, double rayon, float masse) : base(name, rayon, masse)
         {
-            if (rayon > 0 && masse > 0)
-            {
-                this.Nom = "";
-                this.Rayon = rayon;
-                this.Masse = masse;
-            }
-        }
-
-        //lune complete
-        public Lune(String nom, double rayon, float masse)
-        {
-            if (rayon > 0 && masse > 0)
-            {
-                this.Nom = String.Concat(nom.Where(char.IsLetterOrDigit));
-                this.Rayon = rayon;
-                this.Masse = masse;
-            }
+            planeteMere.addLune(this);
+            Parent = planeteMere;
         }
 
         public override bool Equals(object obj)

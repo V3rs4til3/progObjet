@@ -9,76 +9,37 @@ namespace atelier1._5
     class Planete : Astre, IComparable
     {
         List<Lune> _cLune;
-
-        public Planete()
+        public Planete() : base("")
         {
-            this.Nom = "";
-            this.Rayon = 0;
-            this.Masse = 0;
             _cLune = new List<Lune>();
         }
 
-        public Planete(SysSolaire systeme)
+        public Planete(SysSolaire systeme):base("")
         {
-            this.Nom = "";
-            this.Rayon = 0;
-            this.Masse = 0;
             _cLune = new List<Lune>();
             systeme.addAstre(this);
             this.Parent = systeme;
         }
 
-        public Planete(String nomPlanete, double rayonPlanete, float massePlanete)
-        { //constructeur planete minimum parametre
-            if (rayonPlanete > 0 && massePlanete > 0)
-            {
-                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                this.Nom = nomPlanete;
-                this.Rayon = rayonPlanete;
-                this.Masse = massePlanete;
-                _cLune = new List<Lune>();
-            }
+        public Planete(SysSolaire systeme, double rayon, float masse) : base(rayon, masse)
+        {
+            _cLune = new List<Lune>();
+            systeme.addAstre(this);
+            this.Parent = systeme;
         }
 
-        public Planete(SysSolaire systeme, String nomPlanete, double rayonPlanete, float massePlanete)
-        { //constructeur planete minimum parametre
-            if (rayonPlanete > 0 && massePlanete > 0)
-            {
-                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                this.Nom = nomPlanete;
-                this.Rayon = rayonPlanete;
-                this.Masse = massePlanete;
-                _cLune = new List<Lune>();
-                systeme.addAstre(this);
-                this.Parent = systeme;
-            }
+        public Planete(SysSolaire systeme, string name) : base(name)
+        {
+            _cLune = new List<Lune>();
+            systeme.addAstre(this);
+            this.Parent = systeme;
         }
 
-        public Planete(String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
-        { //constructeur planete maximum parametre
-            if (rayonPlanete > 0 && massePlanete > 0)
-            {
-                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                this.Nom = nomPlanete;
-                this.Rayon = rayonPlanete;
-                this.Masse = massePlanete;
-                _cLune = listLune;
-                _cLune = new List<Lune>();
-            }
-        }
-        public Planete(SysSolaire systeme, String nomPlanete, double rayonPlanete, float massePlanete, List<Lune> listLune)
-        { //constructeur planete maximum parametre
-            if (rayonPlanete > 0 && massePlanete > 0)
-            {
-                nomPlanete = String.Concat(nomPlanete.Where(char.IsLetterOrDigit));
-                this.Nom = nomPlanete;
-                this.Rayon = rayonPlanete;
-                this.Masse = massePlanete;
-                _cLune = listLune;
-                _cLune = new List<Lune>();
-                systeme.addAstre(this);
-                this.Parent = systeme;
-            }
+        public Planete(SysSolaire systeme, string name, double rayon, float masse) : base(name, rayon, masse)
+        {
+            _cLune = new List<Lune>();
+            systeme.addAstre(this);
+            this.Parent = systeme;
         }
 
         public Lune this[int index]

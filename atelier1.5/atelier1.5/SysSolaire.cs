@@ -10,28 +10,21 @@ namespace atelier1._5
     {
         Galaxie _parent;
         List<Astre> _listAstre;
-        public SysSolaire()
+        public SysSolaire():base("")
         {
-            this.Nom = "";
             _listAstre = new List<Astre>();
         }
 
-        public SysSolaire(Galaxie galax)
+        public SysSolaire(Galaxie galaxie):base("")
         {
-            this.Nom = "";
             _listAstre = new List<Astre>();
-            base.addSys(this);
+            _parent = galaxie;
         }
 
-        public SysSolaire(string nom)
+        public SysSolaire(Galaxie galaxie,string nom):base(nom)
         {
-            this.Nom = nom;
             _listAstre = new List<Astre>();
-        }
-        public SysSolaire(string nom, List<Astre> listeSoleil)
-        {
-            this.Nom = nom;
-            _listAstre = listeSoleil;
+            _parent = galaxie;
         }
 
         public override string ToString()
@@ -51,10 +44,5 @@ namespace atelier1._5
                 return _listAstre;
             }
         }
-
-        public SysSolaire this[int index]
-        {
-
-        } 
     }
 }
