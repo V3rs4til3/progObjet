@@ -9,11 +9,13 @@ namespace atelier1._5
     public abstract class ObjetCeleste
     {
         string _nom;
+        ObjetCeleste _parent;
 
         public ObjetCeleste(String nom)
         {
             _nom = nom;
         }
+
         public string Nom
         {
             get
@@ -31,5 +33,12 @@ namespace atelier1._5
         {
             return this._nom;
         }
+
+        public virtual ObjetCeleste Parent
+        {
+            get { return this._parent; }
+            set { this._parent = value; }
+        }
+            
     }
 }
