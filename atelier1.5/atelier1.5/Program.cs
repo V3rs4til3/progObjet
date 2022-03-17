@@ -10,6 +10,8 @@ namespace atelier1._5
     {
         static void Main(string[] args)
         {
+            SysSolaire voieLacte = new SysSolaire();
+            voieLacte.ajouterSoleil("alloa");
         }
     }
 }

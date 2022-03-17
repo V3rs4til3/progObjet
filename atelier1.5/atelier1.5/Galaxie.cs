@@ -9,19 +9,13 @@ namespace atelier1._5
     class Galaxie : ObjetCeleste
     {
         List<SysSolaire> _listSS;
-        public Galaxie()
+
+        public Galaxie(string name) : base(name)
         {
-            this.Nom = "";
             _listSS = new List<SysSolaire>();
         }
-        public Galaxie(string name)
+        public Galaxie(string name, List<SysSolaire> liste) : base(name)
         {
-            this.Nom = name;
-            _listSS = new List<SysSolaire>();
-        }
-        public Galaxie(string name, List<SysSolaire> liste)
-        {
-            this.Nom = name;
             _listSS = liste;
         }
 

@@ -9,7 +9,7 @@ namespace atelier1._5
     class Planete : Astre, IComparable
     {
         List<Lune> _cLune;
-        public Planete() : base("")
+        public Planete(string name) : base(name)
         {
             _cLune = new List<Lune>();
         }

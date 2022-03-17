@@ -10,7 +10,7 @@ namespace atelier1._5
     {
         string _nom;
         ObjetCeleste _parent;
-
+        public ObjetCeleste(){}
         public ObjetCeleste(String nom)
         {
             _nom = nom;

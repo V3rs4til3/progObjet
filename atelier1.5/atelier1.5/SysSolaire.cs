@@ -39,10 +39,12 @@ namespace atelier1._5
 
         public List<Astre> listAstre
         {
-            get
-            {
-                return _listAstre;
-            }
+            get { return _listAstre; }
+        }
+
+        public void ajouterSoleil(string name)
+        {
+            new Soleil(this, name);
         }
     }
 }

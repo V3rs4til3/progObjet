@@ -1,0 +1,12 @@
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\bin\Debug\tictacto.exe.config
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\bin\Debug\tictacto.exe
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\bin\Debug\tictacto.pdb
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.csproj.AssemblyReference.cache
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.csproj.SuggestedBindingRedirects.cache
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.FormMenu.resources
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.FormPartie.resources
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.Properties.Resources.resources
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.csproj.GenerateResource.cache
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.csproj.CoreCompileInputs.cache
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.exe
+C:\Users\xboxm\Documents\HIVER2022\progObjet\tictacto\tictacto\obj\Debug\tictacto.pdb
