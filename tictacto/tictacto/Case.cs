@@ -8,18 +8,29 @@ namespace tictacto
 {
     public class Case
     {
-        int _name;
+        bool _isUsed;
+        string _joueur;
         Plateau _monPlateau;
 
         public Case(Plateau lePlateau)
         {
             _monPlateau = lePlateau;
-            _name = 0;
+            _isUsed = false;
         }
 
-        public int Name
+        public bool Used
         {
-            get { return _name; }
+            get { return _isUsed; }
+
+            set { _isUsed = value; }
+        }
+
+
+        public string Joueur
+        {
+            get { return _joueur; }
+
+            set { _joueur = value; }
         }
 
     }

@@ -9,25 +9,46 @@ namespace tictacto
     public class Partie
     {
         TicTacToe _parent;
-        Plateau lePlateau;
-        int tours;
+        Plateau monPlateau;
+        int _tours;
         public Partie(TicTacToe controller)
         {
             _parent = controller;
-            lePlateau = new Plateau(this);
-            tours = 0;
+            monPlateau = new Plateau(this);
+            _tours = 0;
         }
 
-        public string tourJoueur()
+        public string tourJoueur(int laCase)
         {
-            if(tours % 2 == 0)
+            if (_tours % 2 == 0)
                 return "X";
             return "O";
         }
 
+        public void jouer(string leJoueur, int laCase)
+        {
+            monPlateau.jouerTour(leJoueur, laCase);
+        }
+
+
         public bool isUsed(int laCase)
         {
-            return lePlateau.isUsed(laCase);
+            return monPlateau.isUsed(laCase);
         }
+
+        public bool isWon(string joueur)
+        {
+            if (monPlateau.isWon(joueur))
+                return true;
+            return false;
+        }
+
+        public int Tours
+        {
+
+            get { return _tours; }
+            set { _tours++; }
+        }
+
     }
 }
