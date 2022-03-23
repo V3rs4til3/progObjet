@@ -25,7 +25,6 @@ namespace tictacto
             set { _isUsed = value; }
         }
 
-
         public string Joueur
         {
             get { return _joueur; }

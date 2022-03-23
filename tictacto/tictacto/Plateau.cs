@@ -8,12 +8,12 @@ namespace tictacto
 {
     public class Plateau
     {
-        Case[] _mesCases;
+        public Case[] _mesCases;
         Partie _maPartie;
 
         public Plateau(Partie laPartie)
         {
-            _mesCases = new Case[10];
+            _mesCases = new Case[9];
             for(int i = 0; i < _mesCases.Length; i++)
             {
                 _mesCases[i] = new Case(this);
@@ -41,8 +41,31 @@ namespace tictacto
                 return true;
             else if (_mesCases[3].Joueur == joueur && _mesCases[4].Joueur == joueur && _mesCases[5].Joueur == joueur)
                 return true;
-            if (_mesCases[6].Joueur == joueur && _mesCases[7].Joueur == joueur && _mesCases[8].Joueur == joueur)
+            else if (_mesCases[6].Joueur == joueur && _mesCases[7].Joueur == joueur && _mesCases[8].Joueur == joueur)
                 return true;
+            else if (_mesCases[0].Joueur == joueur && _mesCases[3].Joueur == joueur && _mesCases[6].Joueur == joueur)
+                return true;
+            else if (_mesCases[1].Joueur == joueur && _mesCases[4].Joueur == joueur && _mesCases[7].Joueur == joueur)
+                return true;
+            else if (_mesCases[2].Joueur == joueur && _mesCases[5].Joueur == joueur && _mesCases[8].Joueur == joueur)
+                return true;
+            else if (_mesCases[0].Joueur == joueur && _mesCases[4].Joueur == joueur && _mesCases[8].Joueur == joueur)
+                return true;
+            else if (_mesCases[3].Joueur == joueur && _mesCases[4].Joueur == joueur && _mesCases[6].Joueur == joueur)
+                return true;
+            return false;
+        }
+
+        public bool isNull()
+        {
+            int i = 0;
+            foreach(var m in _mesCases)
+            {
+                if (m.Used)
+                    i++;
+                if (i == 9)
+                    return true;
+            }
             return false;
         }
         

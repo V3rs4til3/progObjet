@@ -13,20 +13,20 @@ namespace tictacto
     public partial class FormMenu : Form
     {
         TicTacToe _parent;
-        public FormMenu(TicTacToe Controller)
+        public FormMenu(TicTacToe controller)
         {
             InitializeComponent();
-            this._parent = Controller;
+            _parent = controller;
         }
 
         private void btNovelllePartie_Click(object sender, EventArgs e)
         {
-            this._parent.nouvellePartie();
+            _parent.nouvellePartie();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this._parent.quit();
+            _parent.quit();
         }
     }
 }

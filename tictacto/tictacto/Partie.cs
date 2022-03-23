@@ -9,7 +9,7 @@ namespace tictacto
     public class Partie
     {
         TicTacToe _parent;
-        Plateau monPlateau;
+        public Plateau monPlateau;
         int _tours;
         public Partie(TicTacToe controller)
         {
@@ -25,30 +25,9 @@ namespace tictacto
             return "O";
         }
 
-        public void jouer(string leJoueur, int laCase)
+        public void plusTours()
         {
-            monPlateau.jouerTour(leJoueur, laCase);
+            this._tours++;
         }
-
-
-        public bool isUsed(int laCase)
-        {
-            return monPlateau.isUsed(laCase);
-        }
-
-        public bool isWon(string joueur)
-        {
-            if (monPlateau.isWon(joueur))
-                return true;
-            return false;
-        }
-
-        public int Tours
-        {
-
-            get { return _tours; }
-            set { _tours++; }
-        }
-
     }
 }

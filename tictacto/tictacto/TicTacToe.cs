@@ -50,26 +50,31 @@ namespace tictacto
         {
             string joueur;
             int laCase = Int32.Parse(btn.Name.Remove(0, 6)) -1;
-            if (!maPartie.isUsed(laCase))
+            if (!maPartie.monPlateau.isUsed(laCase))
             {
-                //toDo
-                joueur =  maPartie.tourJoueur(laCase);
-                maPartie.jouer(joueur,laCase);
+                joueur = maPartie.tourJoueur(laCase);
+                maPartie.monPlateau.jouerTour(joueur,laCase);
                 btn.Text = joueur;
 
-                if (maPartie.isWon(joueur))
+                if (maPartie.monPlateau.isWon(joueur))
                 {
                     string message = "le joueur : " + joueur + " a gagner";
                     string caption = "Partie gagner";
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
-
-                    // Displays the MessageBox.
-                    result = MessageBox.Show(message, caption, buttons);
+                    MessageBox.Show(message, caption, buttons);
 
                     quitPartie();
                 }
-                maPartie.Tours = maPartie.Tours;
+                else if (maPartie.monPlateau.isNull())
+                {
+                    string message = "Partie nulle! Aucun joueur n'a gagnee";
+                    string caption = "Partie nulle";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(message, caption, buttons);
+
+                    quitPartie();
+                }
+                maPartie.plusTours();
             }
             else
             {
